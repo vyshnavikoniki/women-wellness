@@ -41,10 +41,6 @@ print(data.head())
 X = data.drop("Creditworthy", axis=1)
 y = data["Creditworthy"]
 
-# -------------------------------------------------------
-# Train-Test Split
-
-
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
@@ -52,18 +48,13 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
-# -------------------------------------------------------
-# Feature Scaling
-# -------------------------------------------------------
 
 scaler = StandardScaler()
 
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# -------------------------------------------------------
-# Models
-# -------------------------------------------------------
+
 
 models = {
     "Logistic Regression": LogisticRegression(),
@@ -115,18 +106,13 @@ for name, model in models.items():
         best_accuracy = accuracy
         best_model = model
 
-# -------------------------------------------------------
-# Save Model
-# -------------------------------------------------------
+
 
 joblib.dump(best_model, "models/credit_model.pkl")
 joblib.dump(scaler, "models/scaler.pkl")
 
 print("Best Model Saved Successfully!")
 
-# -------------------------------------------------------
-# Predict New Customer
-# -------------------------------------------------------
 
 print("\nEnter New Customer Details")
 
