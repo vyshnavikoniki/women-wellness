@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Women WellAI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe0ed, #fff5f9, #ffd6e8);
+            display: flex;
+            flex-direction: column;
+            color: #63334b;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #ffffff;
+            box-shadow: 0 3px 12px #e9a7c633;
+        }
+
+        .logo {
+            color: #d63384;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #75445c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #e83e8c;
+        }
+
+        /* Login section */
+        .login-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 430px;
+            background: white;
+            padding: 40px;
+            border-radius: 22px;
+            box-shadow: 0 12px 35px #c94f8c26;
+            border: 1px solid #ffe0ed;
+        }
+
+        .icon {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c21870;
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #987185;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        /* Form fields */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #63334b;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #efc5d8;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            background: #fffafd;
+        }
+
+        .form-group input:focus {
+            border-color: #e83e8c;
+            box-shadow: 0 0 0 3px #e83e8c1c;
+        }
+
+        /* Remember me */
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 22px;
+            font-size: 14px;
+        }
+
+        .remember input {
+            accent-color: #e83e8c;
+            width: 16px;
+            height: 16px;
+        }
+
+        .remember label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        /* Pink login button */
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e83e8c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #c21870;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px #e83e8c40;
+        }
+
+        /* Register link */
+        .register-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #987185;
+            font-size: 14px;
+        }
+
+        .register-text a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #d63384;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #987185;
+            font-size: 14px;
+        }
+
+        .back-home:hover {
+            color: #d63384;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .error {
+            display: block;
+            background: #ffe5e5;
+            color: #b42318;
+        }
+
+        .success {
+            display: block;
+            background: #e4f8eb;
+            color: #218838;
+        }
+
+        /* Footer */
+        footer {
+            background: #c21870;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 500px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+                padding: 18px;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .login-card {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">🌸 Women WellAI</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="login-section">
+        <div class="login-card">
+
+            <div class="icon">🌸</div>
+
+            <h1>Welcome Back!</h1>
+
+            <p class="subtitle">
+                Login to continue your wellness journey.
+            </p>
+
+            <div id="message" class="message"></div>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required>
+                </div>
+
+                <div class="remember">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login →
+                </button>
+
+            </form>
+
+            <div class="register-text">
+                <p>Don't have an account?</p>
+                <a href="register.html">Create Account</a>
+            </div>
+
+            <a href="index.html" class="back-home">
+                ← Back to Home
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Women WellAI. All Rights Reserved.
+    </footer>
+
+    <script>
+        document.getElementById("loginForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+                const message =
+                    document.getElementById("message");
+
+                const savedUser =
+                    localStorage.getItem("womenWellAIUser");
+
+                if (!savedUser) {
+                    message.className = "message error";
+                    message.textContent =
+                        "No account found. Please register first.";
+                    return;
+                }
+
+                let user;
+
+                try {
+                    user = JSON.parse(savedUser);
+                } catch (error) {
+                    message.className = "message error";
+                    message.textContent =
+                        "Account data is invalid. Please register again.";
+                    return;
+                }
+
+                if (user.email === email &&
+                    user.password === password) {
+
+                    localStorage.setItem(
+                        "womenWellAILoggedIn", "true"
+                    );
+
+                    message.className = "message success";
+                    message.textContent =
+                        "Login successful! Opening dashboard...";
+
+                    setTimeout(function() {
+                        window.location.href = "dashboard.html";
+                    }, 800);
+
+                } else {
+                    message.className = "message error";
+                    message.textContent =
+                        "Invalid email or password. Please try again.";
+                }
+            });
+    </script>
+
+</body>
+</html>

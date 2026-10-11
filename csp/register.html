@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Women WellAI</title>
+
+    <link rel="stylesheet"
+          href="register.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        🌸 Women WellAI
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="register-section">
+
+    <div class="register-card">
+
+        <div class="register-icon">
+            🌸
+        </div>
+        <p class="subtitle">
+            Start your Women WellAI wellness journey.
+        </p>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div
+            id="message"
+            class="message">
+        </div>
+
+
+        <form id="registerForm">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="form-group">
+
+                <label>
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                >
+
+                <label>
+                    I agree to the Terms &
+                    Conditions.
+                </label>
+
+            </div>
+
+
+            <!-- REGISTER BUTTON -->
+
+            <button
+                type="submit"
+                class="register-button">
+   		 Create Account
+            </button>
+
+        </form>
+
+
+        <!-- LOGIN LINK -->
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="login1.html">
+                Login here
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    © 2026 Women WellAI. All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+document
+    .getElementById("registerForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        const message =
+            document.getElementById("message");
+
+
+        // Check password match
+
+        if (password !== confirmPassword) {
+
+            message.style.display = "block";
+
+            message.className =
+                "message error";
+
+            message.innerHTML =
+                "Passwords do not match.";
+
+            return;
+        }
+
+
+        // Check if account already exists
+
+        const existingUser =
+            localStorage.getItem("womenWellAIUser");
+
+
+        if (existingUser) {
+
+            const user =
+                JSON.parse(existingUser);
+
+
+            if (user.email === email) {
+
+                message.style.display = "block";
+
+                message.className =
+                    "message error";
+
+                message.innerHTML =
+                    "An account with this email already exists. Please login.";
+
+                return;
+            }
+        }
+
+
+        // Create user object
+
+        const user = {
+
+            name: name,
+
+            email: email,
+
+            password: password
+
+        };
+
+
+        // Store user
+
+        localStorage.setItem(
+            "womenWellAIUser",
+            JSON.stringify(user)
+        );
+
+
+        // Show success
+
+        message.style.display = "block";
+
+        message.className =
+            "message success";
+
+        message.innerHTML =
+            "Account created successfully! Redirecting to Login...";
+
+
+        // Redirect to login
+
+        setTimeout(function() {
+
+            window.location.href =
+                "login.html";
+
+        }, 1500);
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
